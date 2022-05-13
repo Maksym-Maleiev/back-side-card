@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Карточка</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
+    />
+    <style>
+      .container {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .card-thumb {
+        position: relative;
+        width: 200px;
+        height: 400px;
+
+        perspective: 600px;
+        cursor: pointer;
+      }
+
+      .card {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        text-align: center;
+        line-height: 400px;
+        font-size: 24px;
+        font-weight: 500;
+
+        transition: transform 250ms linear;
+      }
+
+      .card.front {
+        z-index: 2;
+        background-color: red;
+        color: black;
+
+        transform: rotateY(0deg);
+        backface-visibility: hidden;
+      }
+
+      .card.back {
+        background-color: black;
+        color: #fff;
+        transform: rotateY(-180deg);
+      }
+
+      .card-thumb:hover .card.front {
+        transform: rotateY(180deg);
+      }
+
+      .card-thumb:hover .card.back {
+        transform: rotateY(0deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card-thumb">
+        <div class="card front">Україна</div>
+        <div class="card back">Понад усе!</div>
+      </div>
+    </div>
+  </body>
+</html>
